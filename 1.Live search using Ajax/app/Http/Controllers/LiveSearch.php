@@ -19,9 +19,8 @@ class LiveSearch extends Controller
 			$output = '';
 			$query = $request->get('query');
 			if ($query != '') {
-				$data = Customer::all()
-					->where('name', 'like', '%' . $query . '%')
-					->orWhere('adress', 'like', '%' . $query . '%')
+				$data = Customer::where('name', 'like', '%' . $query . '%')
+					->orWhere('address', 'like', '%' . $query . '%')
 					->orWhere('city', 'like', '%' . $query . '%')
 					->orWhere('postal_code', 'like', '%' . $query . '%')
 					->orWhere('country', 'like', '%' . $query . '%')

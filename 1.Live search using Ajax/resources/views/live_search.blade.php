@@ -41,6 +41,7 @@
 <script>
 
     $(document).ready(function(){
+
         fetch_customer_data();
 
         function fetch_customer_data(query = '')
@@ -57,6 +58,12 @@
                 }
             })
         }
+
+        $(document).on('keyup', '#search', function(){
+            var query = $(this).val();
+            fetch_customer_data(query);
+        });
+
     });
 
 </script>
