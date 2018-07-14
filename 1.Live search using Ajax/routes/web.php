@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/getdata', 'LiveSearch@getData')->name('live-search-getData');
+Route::get('/live_search', 'LiveSearch@index');
+Route::get('/getdata', 'LiveSearch@getData')->name('live_search.action');
+

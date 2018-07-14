@@ -41,16 +41,18 @@
 <script>
 
     $(document).ready(function(){
+        fetch_customer_data();
+
         function fetch_customer_data(query = '')
         {
             $.ajax({
-                url:"{{route('live-search-getData')}}",
+                url:"{{ route('live_search.action') }}",
                 method:'GET',
                 data:{query:query},
                 dataType:'json',
                 success:function(data)
                 {
-                    $('tbody').html(data_table_data);
+                    $('tbody').html(data.table_data);
                     $('#total_records').text(data.total_data);
                 }
             })
