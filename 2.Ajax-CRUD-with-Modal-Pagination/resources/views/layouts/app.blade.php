@@ -30,11 +30,38 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+{{--ajax form add --}}
 <script type="text/javascript">
     $(document).on('click', '.create-modal', function(){
         $('#create').modal('show');
         $('.form-horizontal').show();
         $('.modal-title').text('Add Post');
     });
+//add post
+    $("#add").click(function() {
+        $.ajax({
+            type: 'POST',
+            url: '{{route('add-post')}}',
+            data: {
+                '_token': $('input[name=_token]').val(),
+                'title': $('input[name=title]').val(),
+                'body': $('input[name=body]').val()
+            },
+            success: function(data){
+
+                    $('#table').append("<tr class='post" + data.id + "'>"+
+                        "<td>" + data.title + "</td>"+
+                        "<td>" + data.body + "</td>"+
+                        "<td>" + data.created_at + "</td>"+
+                        "<td><button class='show-modal btn btn-info btn-sm' data-id='" + data.id + "' data-title='" + data.title + "' data-body='" + data.body + "'><span class='fa fa-eye'></span></button> <button class='edit-modal btn btn-warning btn-sm' data-id='" + data.id + "' data-title='" + data.title + "' data-body='" + data.body + "'><span class='glyphicon glyphicon-pencil'></span></button> <button class='delete-modal btn btn-danger btn-sm' data-id='" + data.id + "' data-title='" + data.title + "' data-body='" + data.body + "'><span class='glyphicon glyphicon-trash'></span></button></td>"+
+                        "</tr>");
+            },
+        });
+        $('#title').val('');
+        $('#body').val('');
+    });
+
+
+
 </script>
 
