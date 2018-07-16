@@ -14,7 +14,7 @@
                 <th>Body</th>
                 <th>Create At</th>
                 <th class="text-center" width="150px">
-                    <a href="" class="create-modal btn btn-success btn-sm">
+                    <a href="#" class="create-modal btn btn-success btn-sm">
                         <i class="glyphicon glyphicon-plus"></i>
                     </a>
                 </th>
@@ -60,13 +60,6 @@
                                 <input type="text" class="form-control" id="title" name="title" placeholder="Your title" required>
                                 <p class="error text-center alert alert-danger hidden"></p>
                             </div>
-                    </div>
-                    <div class="form-group row add">
-                        <label class="control-label col-sm-2" for="title">Title :</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="title" name="title" placeholder="Your title" required>
-                            <p class="error text-center alert alert-danger hidden"></p>
-                        </div>
                     </div>
                     <div class="form-group row add">
                         <label class="control-label col-sm-2" for="title">Body :</label>
